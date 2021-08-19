@@ -64,4 +64,5 @@ if st.button('Predict Price'):
     query = np.array([company,lapi_type,ram,weight,touchscreen,ips,cpu,hdd,ssd,gpu,ppi,os])
 
     query = query.reshape(1,12)
-    st.title("The predicted price is : " + np.exp(pipe.predict(query)[0]))
+    p=float(np.exp(pipe.predict(query)[0]))
+    st.title("The predicted price is : " + "{:.2f}".format(p) + "/- Rs")
